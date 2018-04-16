@@ -19,14 +19,17 @@ function warnAboutReceivingStore() {
   )
 }
 
+
 export function createProvider(storeKey = 'store', subKey) {
     const subscriptionKey = subKey || `${storeKey}Subscription`
-
+    // Provider是一个标准的react组件
     class Provider extends Component {
         getChildContext() {
           return { [storeKey]: this[storeKey], [subscriptionKey]: null }
         }
-
+        // 跟住参数，props，context,这两个完全就是react中的概念
+        // props 
+        // context
         constructor(props, context) {
           super(props, context)
           this[storeKey] = props.store;
